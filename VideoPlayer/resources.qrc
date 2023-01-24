@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Assets/folder.png</file>
+        <file>Assets/video.png</file>
+        <file>Assets/background.jpeg</file>
+        <file>Assets/pause.png</file>
+        <file>Assets/play.png</file>
+    </qresource>
+</RCC>
