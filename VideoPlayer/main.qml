@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Window 2.14
-import QtQuick.Controls 2.12
 import QtQuick.Dialogs 1.2
 import QtMultimedia 5.0
 
@@ -31,78 +30,10 @@ Window {
         id : player
         x: 19
         y: 41
+        onResetZoomSlider: {
+            zoomSlider.value = 1
+        }
     }
-
-//    Flickable {
-//        id: flickArea
-//        x: 19
-//        y: 41
-//        width: 602
-//        height: 348
-//        clip: true
-
-//        PinchArea {
-
-//            id : pincher
-//            anchors.fill: parent
-//            width: Math.max(flickArea.contentWidth, flickArea.width)
-//            height: Math.max(flickArea.contentHeight, flickArea.height)
-
-//            property real initialWidth
-//            property real initialHeight
-
-//            onPinchStarted: {
-//                initialWidth = flickArea.contentWidth
-//                initialHeight = flickArea.contentHeight
-//            }
-
-//            onPinchUpdated: {
-//                flickArea.resizeContent(initialWidth * pinch.scale,
-//                                        initialHeight * pinch.scale,
-//                                        pinch.center)
-//            }
-
-//            Rectangle {
-//                id : rctVideoScreen
-//                anchors.fill: parent
-//                color: "black"
-
-//                VideoOutput {
-//                    id : videoRender
-//                    anchors.fill: parent
-//                    source: player
-//                }
-
-//                MediaPlayer {
-//                    id : player
-//                    source: ""
-//                    onPositionChanged: {
-//                        videoSlider.setSliderCurrent(player.position)
-//                    }
-//                    onStatusChanged: {
-//                        if(status == MediaPlayer.Loaded) {
-//                            videoSlider.setSliderMaximum(player.duration)
-//                        }
-//                    }
-//                }
-//            }
-
-//            MouseArea {
-//                id : panArea
-//                anchors.fill: parent
-//                drag.target: parent.parent
-//                drag.axis: Drag.XAndYAxis
-//                onDoubleClicked: {
-//                    zoomSlider.value=1
-//                    flickArea.resizeContent(flickArea.width,
-//                                            flickArea.height,
-//                                            Qt.point(flickArea.width/2, flickArea.height/2))
-//                }
-
-//            }
-//        }
-//    }
-
 
     Item {
         id : zoomSliderItem
@@ -118,8 +49,9 @@ Window {
                     anchors.verticalCenter: parent.verticalCenter
                     text: qsTr("Zoom")
                 }
-                Slider {
+                CustomSlider {
                     id : zoomSlider
+                    width: 200
                     from : 1
                     to:3
                     stepSize: 0.1
@@ -159,9 +91,11 @@ Window {
         }
     }
 
-    ChooseFileButton {
+    CustomButton {
         x:102
         y:454
+        fontPointSize: 11
+        title: "choose a file"
         onClicked: {
             filePicker.visible = true
         }
@@ -175,6 +109,18 @@ Window {
         visible: false
     }
 
+//    CustomSlider {
+//        id : mySlider
+//        x: 221
+//        y: 432
+//    }
+
+//    CustomSlider2 {
+//        id : mySlider
+//        x: 221
+//        y: 432
+//    }
+
     Component.onCompleted: {
         filePicker.fileSelected.connect(filePickerSelected)
     }
@@ -182,7 +128,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:1}D{i:2}D{i:6}D{i:7}D{i:5}D{i:8}D{i:4}D{i:3}D{i:12}
-D{i:13}D{i:11}D{i:10}D{i:9}D{i:14}D{i:15}D{i:16}D{i:17}
+    D{i:0;formeditorZoom:0.66}D{i:1}D{i:2}D{i:3}D{i:7}D{i:8}D{i:6}D{i:5}D{i:4}D{i:9}D{i:10}
+D{i:11}D{i:12}
 }
 ##^##*/

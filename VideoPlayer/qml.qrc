@@ -6,5 +6,7 @@
         <file>PlayToggleButton.qml</file>
         <file>ChooseFileButton.qml</file>
         <file>VideoScene.qml</file>
+        <file>CustomSlider.qml</file>
+        <file>CustomButton.qml</file>
     </qresource>
 </RCC>
