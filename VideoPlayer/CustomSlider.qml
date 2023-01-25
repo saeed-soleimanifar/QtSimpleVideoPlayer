@@ -84,6 +84,11 @@ Item {
                     calcValue(rctSliderButton.x )
                 }
             }
+
+            onClicked: {
+                rctSliderButton.x = Math.max(0, Math.min(mouse.x - rctSliderButton.width/2,drag.maximumX- rctSliderButton.width/2))
+                calcValue(rctSliderButton.x )
+            }
         }
     }
 
