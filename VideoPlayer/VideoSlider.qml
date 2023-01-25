@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.12
 
 Item {
     id : videoSlider
@@ -28,7 +27,7 @@ Item {
         anchors.fill: parent
         color: "transparent"
 
-        Slider {
+        CustomSlider {
             id : videoScroll
             anchors.fill: parent
             onValueChanged: {
