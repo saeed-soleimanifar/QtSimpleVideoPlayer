@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.12
 import VideoFileExplorerModel 0.1
 
 Item {
@@ -46,10 +45,9 @@ Item {
                 width: fileExplorerGridView.itemWidth
                 height: fileExplorerGridView.itemHeight
                 color: "transparent"
-//                color: fileExplorerGridView.currentIndex === model.index ? "lightgray" : "transparent"
+
                 Column {
                     spacing: 0
-
                     Rectangle {
                         width: fileExplorerGridView.itemWidth
                         height: fileExplorerGridView.itemHeight * 0.80
@@ -58,7 +56,6 @@ Item {
                             id : imgFolderFileIcon
                             anchors.fill: parent
                             anchors.margins: 3
-    //                        anchors.margins: 5
                             fillMode: Image.PreserveAspectFit
                             source: isfolder ? "qrc:/Assets/folder.png" : "qrc:/Assets/video.png"
                         }
@@ -113,11 +110,6 @@ Item {
 
             delegate: fileExplorerDelegate
 
-            ScrollBar.vertical: ScrollBar {
-                policy: ScrollBar.AlwaysOn
-            }
-
-
         }
     }
 
@@ -128,10 +120,12 @@ Item {
         height: 46
         anchors.bottom: parent.bottom
 
-        RoundButton {
-            x: 63
-            y: 3
-            text: "OK"
+        CustomButton {
+            x: 90
+            y: 6
+            width: 77
+            height: 35
+            title: "OK"
             onClicked: {
                 if(customFilePicker.selectedFileAddress !=="") {
                     customFilePicker.visible = false
@@ -141,10 +135,12 @@ Item {
             }
         }
 
-        RoundButton {
+        CustomButton {
             x: 8
-            y: 3
-            text: "Cancel"
+            y: 6
+            width: 77
+            height: 35
+            title: "Cancel"
             onClicked: {
                 customFilePicker.visible = false
             }
@@ -152,9 +148,9 @@ Item {
 
         Text {
             id: lblFileName
-            x: 114
+            x: 173
             y: 8
-            width: 378
+            width: 319
             height: 30
             color: "#ffffff"
             text: qsTr("")
@@ -171,134 +167,5 @@ Item {
         id : vModel
         folder: "file:///home/safa"
     }
-
-//    FolderListModel
-//    {
-//        id: folderModel
-//        folder:"file://home/safa/"
-//        nameFilters: [ "*.mp4", "*.avi" , "*.mov" ]
-//        showDirsFirst: true
-//        showFiles: true
-//    }
-
-
-//    ListModel {
-//        id :cantacntModel
-
-//        ListElement {
-//            name: "Jim Williams Jim Williams Jim Williams Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "John Brown"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Bill Smyth"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Sam Wise"
-//            portrait: "pics/portrait.png"
-//        }
-//        ListElement {
-//            name: "Jim Williams"
-//            portrait: "pics/portrait.png"
-//        }
-//    }
-
-
 
 }
