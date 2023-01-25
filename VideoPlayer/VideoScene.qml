@@ -12,6 +12,8 @@ Item {
     property alias position: player.position
     property string source: ""
 
+    signal resetZoomSlider()
+
 
     function play() {
         player.play()
@@ -81,7 +83,7 @@ Item {
                 drag.target: parent.parent
                 drag.axis: Drag.XAndYAxis
                 onDoubleClicked: {
-                    zoomSlider.value=1
+                    videoScene.resetZoomSlider()
                     flickArea.resizeContent(flickArea.width,
                                             flickArea.height,
                                             Qt.point(flickArea.width/2, flickArea.height/2))
